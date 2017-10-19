@@ -1,4 +1,6 @@
-# Linear Model
+# {{cookiecutter.project_name}}
+
+{{cookiecutter.short_description}}
 
 This repository contains the entire scientific project, including code and report. The philosophy behind this repository is that no intermediary results are included, but all results are computed from raw data and code.
 
@@ -38,3 +40,4 @@ If you do not have `make` you can manually run the steps through the Python comm
 * `tests`: contains the test code
 * `config`: configurations used in the study
 * `data`: place for raw data
+* `build`: will contain all results (does not exist initially)

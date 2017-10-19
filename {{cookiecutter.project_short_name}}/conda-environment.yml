@@ -1,4 +1,4 @@
-name: linear-model
+name: {{cookiecutter.project_short_name}}
 channels:
   - conda-forge
 dependencies:

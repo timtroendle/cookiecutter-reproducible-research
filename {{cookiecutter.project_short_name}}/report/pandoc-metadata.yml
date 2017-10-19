@@ -1,14 +1,13 @@
 ---
-title: 'A model'
+title: {{cookiecutter.project_name}}
 author:
-    - 'Tim Tröndle'
-institute: ETH Zurich
+    - {{cookiecutter.author}}
+institute: {{cookiecutter.institute}}
 tags:
-    - 'linear-model'
+    - 'reproducible-science'
 abstract: |
-    A linear model.
+    {{cookiecutter.short_description}}
 bibliography:
     - 'literature.bib'
 csl: 'energy-policy.csl'
-
 ---
