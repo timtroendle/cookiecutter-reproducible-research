@@ -1,0 +1,14 @@
+---
+title: 'A model'
+author:
+    - 'Tim Tröndle'
+institute: ETH Zurich
+tags:
+    - 'linear-model'
+abstract: |
+    A linear model.
+bibliography:
+    - 'literature.bib'
+csl: 'energy-policy.csl'
+
+---
