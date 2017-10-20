@@ -1,4 +1,4 @@
-PYTHON = PYTHONPATH=./src python
+PYTHON = PYTHONPATH=./ python
 RESULTS = build/results.pickle
 PLOT = build/plot.png
 
