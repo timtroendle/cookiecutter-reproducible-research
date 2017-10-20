@@ -9,6 +9,7 @@ This repository contains the entire scientific project, including code and repor
 The following dependencies are needed to set up an environment in which the analysis can be run and the paper be build:
 
 * [conda](https://conda.io/docs/index.html)
+* `LaTeX` to [produce a PDF](http://pandoc.org/MANUAL.html#creating-a-pdf). Can be avoided by switching to [any other output format supported by pandoc](http://pandoc.org/index.html).
 * `make` (optional; without `make`, e.g. on Windows, you will need to manually run all steps)
 
 When these dependencies are installed, you can create a conda environment from within you can run the analysis:
