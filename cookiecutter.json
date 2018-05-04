@@ -1,5 +1,5 @@
 {
-    "project_name": "Reproducible Science Project",
+    "project_name": "Reproducible Research Project",
     "project_short_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "author": "Your name",
     "institute": "Your institution",

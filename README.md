@@ -1,8 +1,8 @@
-# cookiecutter-reproducible-science
+# cookiecutter-reproducible-research
 
-This repository provides a [cookiecutter](http://cookiecutter.readthedocs.io) template for reproducible science projects. It does not attempt to be generic, but has a clear and opinionated focus.
+This repository provides a [cookiecutter](http://cookiecutter.readthedocs.io) template for reproducible research projects. It does not attempt to be generic, but has a clear and opinionated focus.
 
-Projects build with this template aim at full automation, and use `Python 3.6`, `conda`, `Git`, `Make`, `pandoc`, and `LaTeX` to create a PDF report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
+Projects build with this template aim at full automation, and use `Python 3.6`, `conda`, `Git`, `Make`, and `pandoc` to create a PDF report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
 
 The template includes a few lines of code as a demo to allow you to create a PDF report out of simulated results right away. Read the `README.md` in the generated repository to see how.
 
@@ -27,7 +27,7 @@ The generated repository will have the following structure:
 ├── .gitignore
 ├── conda-environment.yml   <- A file to create an environment to execute your project in.
 ├── LICENSE.md              <- MIT license description
-├── Makefile                <- Description of all computational steps to create results.
+├── Snakefile               <- Description of all computational steps to create results.
 ├── README.md
 └── VERSION
 ```
@@ -40,7 +40,7 @@ Make sure you have cookiecutter installed, otherwise install it with [conda](htt
 
 Then create a repository using:
 
-    cookiecutter gh:timtroendle/cookiecutter-reproducible-science
+    cookiecutter gh:timtroendle/cookiecutter-reproducible-research
 
 You will be asked for the following parameters:
 

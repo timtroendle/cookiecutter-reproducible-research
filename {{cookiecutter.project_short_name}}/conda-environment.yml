@@ -1,6 +1,7 @@
 name: {{cookiecutter.project_short_name}}
 channels:
   - conda-forge
+  - bioconda
 dependencies:
   - python=3.6
   - numpy=1.13.3
@@ -10,6 +11,7 @@ dependencies:
   - pandoc=1.19.2.1
   - pytest=3.2.3
   - click=6.7
+  - snakemake=4.8.1
   - pip:
       - pytest-pythonpath # adds the root path "./" to PYTHONPATH
       - pandoc-tablenos

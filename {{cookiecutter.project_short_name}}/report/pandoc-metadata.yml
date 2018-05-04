@@ -4,7 +4,7 @@ author:
     - {{cookiecutter.author}}
 institute: {{cookiecutter.institute}}
 tags:
-    - 'reproducible-science'
+    - 'reproducible-research'
 abstract: |
     {{cookiecutter.short_description}}
 bibliography:

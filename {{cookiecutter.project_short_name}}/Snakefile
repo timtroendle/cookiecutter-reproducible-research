@@ -1,0 +1,58 @@
+PYTHON = "PYTHONPATH=./ python"
+
+rule all:
+    message: "Run entire analysis and compile report."
+    input: rules.report.output
+
+
+rule run:
+    message:
+        "Runs the demo model."
+    input:
+        "src/model.py"
+    output:
+        "build/results.pickle"
+    shell:
+        PYTHON + " {input} 4 5 {output}"
+
+
+rule plot:
+    message:
+        "Visualises the demo results."
+    input:
+        src = "src/vis.py",
+        results = rules.run.output
+    output:
+        "build/plot.png"
+    shell:
+        PYTHON + " {input.src} {input.results} {output}"
+
+
+rule report:
+    message: "Compile report."
+    input:
+        "report/literature.bib",
+        "report/main.md",
+        "report/pandoc-metadata.yml",
+        rules.plot.output
+    output:
+        "build/report.pdf"
+    shell:
+        """
+        cd ./report
+        pandoc --filter pantable --filter pandoc-fignos --filter pandoc-tablenos \
+        --filter pandoc-citeproc main.md pandoc-metadata.yml -t latex -o ../build/report.pdf
+        """
+
+
+rule clean: # removes all generated results
+    shell:
+        """
+        rm -r ./build/*
+        echo "Data downloaded to data/ has not been cleaned."
+        """
+
+
+rule test:
+    shell:
+        "py.test"
