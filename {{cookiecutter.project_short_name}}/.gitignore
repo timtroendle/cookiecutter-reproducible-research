@@ -38,3 +38,7 @@ dist/
 __pycache__
 *.egg-info
 .cache/
+
+# Snakemake
+.snakemake/
+dag.pdf

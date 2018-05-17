@@ -2,7 +2,7 @@ PYTHON = "PYTHONPATH=./ python"
 
 rule all:
     message: "Run entire analysis and compile report."
-    input: rules.report.output
+    input: "build/report.pdf"
 
 
 rule run:
