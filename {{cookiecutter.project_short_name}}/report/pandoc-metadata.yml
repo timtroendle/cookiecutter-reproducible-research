@@ -10,4 +10,6 @@ abstract: |
 bibliography:
     - 'literature.bib'
 csl: 'energy-policy.csl'
+link-citations: True
+date: {{cookiecutter.version}}
 ---
