@@ -6,22 +6,13 @@ This repository contains the entire scientific project, including code and repor
 
 ## Getting ready
 
-The following dependencies are needed to set up an environment in which the analysis can be run and the report be build:
+You need [conda](https://conda.io/docs/index.html) to run the analysis. Using conda, you can create a conda environment from within you can run it:
 
-* [conda](https://conda.io/docs/index.html)
-* `LaTeX` to [produce a PDF](http://pandoc.org/MANUAL.html#creating-a-pdf). Can be avoided by switching to [any other output format supported by pandoc](http://pandoc.org/index.html).
-
-When these dependencies are installed, you can create a conda environment from within you can run the analysis:
-
-    conda env create -f conda-environment.yml
-
-Don't forget to activate the environment. To see what you can do now, run:
-
-    snakemake --list
+    conda env create -f requirements.yml
 
 ## Run the analysis
 
-    snakemake report
+    snakemake
 
 This will run all analysis steps to reproduce results and eventually build the report.
 
