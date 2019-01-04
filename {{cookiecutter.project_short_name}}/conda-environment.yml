@@ -11,7 +11,7 @@ dependencies:
     - pandoc=2.5
     - pytest=4.0.2
     - click=7.0
-    - snakemake=5.4
+    - snakemake-minimal=5.4
     - pip:
         - pytest-pythonpath # adds the root path "./" to PYTHONPATH
         - pandoc-tablenos
