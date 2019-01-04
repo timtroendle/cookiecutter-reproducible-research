@@ -1,13 +1,9 @@
 """This module contains the visualisation of results."""
-import click
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
 
-@click.command()
-@click.argument('path_to_results')
-@click.argument('path_to_figure')
 def visualise_model_results(path_to_results, path_to_figure):
     """Plot the results."""
     sns.set_context('paper')
@@ -21,4 +17,7 @@ def visualise_model_results(path_to_results, path_to_figure):
 
 
 if __name__ == "__main__":
-    visualise_model_results()
+    visualise_model_results(
+        path_to_results=snakemake.input.results[0],
+        path_to_figure=snakemake.output[0]
+    )

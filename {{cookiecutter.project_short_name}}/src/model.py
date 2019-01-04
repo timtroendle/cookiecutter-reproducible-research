@@ -1,5 +1,4 @@
 """This package contains the model used in this study."""
-import click
 import numpy as np
 import pandas as pd
 
@@ -17,10 +16,6 @@ def linear_model(slope, x0, x):
     return slope * x + x0
 
 
-@click.command()
-@click.argument('slope', type=click.FLOAT)
-@click.argument('x0', type=click.FLOAT)
-@click.argument('path_to_results')
 def computation_step(slope, x0, path_to_results):
     """Evaluates the linear model between x=0 and x=1 and writes results."""
     x = np.linspace(start=0, stop=1, num=50)
@@ -29,4 +24,8 @@ def computation_step(slope, x0, path_to_results):
 
 
 if __name__ == "__main__":
-    computation_step()
+    computation_step(
+        slope=snakemake.params.slope,
+        x0=snakemake.params.x0,
+        path_to_results=snakemake.output[0]
+    )

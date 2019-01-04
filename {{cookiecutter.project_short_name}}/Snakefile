@@ -6,26 +6,22 @@ rule all:
 
 
 rule run:
-    message:
-        "Runs the demo model."
-    input:
-        "src/model.py"
-    output:
-        "build/results.pickle"
-    shell:
-        PYTHON + " {input} 4 5 {output}"
+    message: "Runs the demo model."
+    input: "src/model.py"
+    params:
+        slope = 4,
+        x0 = 5
+    output: "build/results.pickle"
+    script: "src/model.py"
 
 
 rule plot:
-    message:
-        "Visualises the demo results."
+    message: "Visualises the demo results."
     input:
         src = "src/vis.py",
         results = rules.run.output
-    output:
-        "build/plot.png"
-    shell:
-        PYTHON + " {input.src} {input.results} {output}"
+    output: "build/plot.png"
+    script: "src/vis.py"
 
 
 rule report:
