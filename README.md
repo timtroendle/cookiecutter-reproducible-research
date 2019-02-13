@@ -26,7 +26,7 @@ The generated repository will have the following structure:
 │   └── test_model.py       <- Demo file.
 ├── .flake8                 <- linting settings for flake8
 ├── .gitignore
-├── conda-environment.yml   <- A file to create an environment to execute your project in.
+├── environment.yaml        <- A file to create an environment to execute your project in.
 ├── LICENSE.md              <- MIT license description
 ├── Snakefile               <- Description of all computational steps to create results.
 ├── README.md
