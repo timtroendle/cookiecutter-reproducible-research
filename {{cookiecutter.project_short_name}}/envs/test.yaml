@@ -1,0 +1,12 @@
+name: test
+channels:
+    - conda-forge
+dependencies:
+    - python=3.7
+    - numpy=1.17.2
+    - pandas=0.25.1
+    - pytest=5.1.2
+    - pytest-html=2.0.0
+    - pip=19.2.3
+    - pip:
+        - pytest-pythonpath # adds the root path "./" to PYTHONPATH

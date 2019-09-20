@@ -1,0 +1,14 @@
+name: report
+channels:
+    - conda-forge
+dependencies:
+    - python=3.7
+    - pango=1.40.14
+    - pandoc=2.7.3
+    - pip=19.2.3
+    - pip:
+        - pandoc-tablenos
+        - pandoc-fignos
+        - pantable
+        - cairocffi==1.0.1
+        - weasyprint==48

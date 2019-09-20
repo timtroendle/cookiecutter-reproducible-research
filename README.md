@@ -13,10 +13,14 @@ The generated repository will have the following structure:
 ```
 ├── config                  <- Configuration files, e.g., for your model if needed.
 ├── data                    <- Raw input data.
+├── envs                    <- Execution environments.
+│   ├── default.yaml        <- Default execution environment.
+│   ├── report.yaml         <- Environment for compilation of the report.
+│   └── test.yaml           <- Environment for executing tests.
 ├── report                  <- All files creating the final report, usually text and figures.
 │   ├── energy-policy.csl   <- Citation style definition to be used in the report.
 │   ├── literature.bib      <- Bibliography file for the report.
-│   ├── main.md             <- The report in Markdown.
+│   ├── report.md           <- The report in Markdown.
 │   └── pandoc-metadata.yml <- Metadata for the report.
 ├── src                     <- Source code goes in here.
 │   ├── __init__.py         <- Makes `src` a Python module.
@@ -24,7 +28,8 @@ The generated repository will have the following structure:
 │   └── vis.py              <- Demo file.
 ├── tests                   <- Automatic tests of the source code go in here.
 │   └── test_model.py       <- Demo file.
-├── .flake8                 <- linting settings for flake8
+├── .editorconfig           <- Editor agnostic configuration settings.
+├── .flake8                 <- Linting settings for flake8.
 ├── .gitignore
 ├── environment.yaml        <- A file to create an environment to execute your project in.
 ├── LICENSE.md              <- MIT license description
