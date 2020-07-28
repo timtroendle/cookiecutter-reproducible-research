@@ -23,7 +23,6 @@ The generated repository will have the following structure:
 │   ├── report.md           <- The report in Markdown.
 │   └── pandoc-metadata.yaml<- Metadata for the report.
 ├── src                     <- Source code goes in here.
-│   ├── __init__.py         <- Makes `src` a Python module.
 │   ├── model.py            <- Demo file.
 │   └── vis.py              <- Demo file.
 ├── tests                   <- Automatic tests of the source code go in here.
@@ -34,8 +33,7 @@ The generated repository will have the following structure:
 ├── environment.yaml        <- A file to create an environment to execute your project in.
 ├── LICENSE.md              <- MIT license description
 ├── Snakefile               <- Description of all computational steps to create results.
-├── README.md
-└── VERSION
+└── README.md
 ```
 
 ## Getting Started
@@ -57,7 +55,6 @@ Parameter | Description
 `author` | Your name.
 `institute` | The name of your institute, used for report metadata.
 `short_description` | A short description of the project, used for documentation and report.
-`version` | The version of the project.
 
 ## License
 

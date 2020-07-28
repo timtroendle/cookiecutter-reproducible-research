@@ -3,6 +3,5 @@
     "project_short_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "author": "Your name",
     "institute": "Your institution",
-    "short_description": "A short description of this project.",
-    "version": "0.1.0.dev"
+    "short_description": "A short description of this project."
 }

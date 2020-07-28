@@ -11,5 +11,5 @@ bibliography:
     - 'literature.bib'
 csl: 'energy-policy.csl'
 link-citations: True
-date: {{cookiecutter.version}}
+date: {% now 'utc', '%Y-%m-%d' %}
 ---
