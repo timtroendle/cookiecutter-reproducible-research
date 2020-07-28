@@ -44,10 +44,10 @@ def pandoc_options(wildcards):
 rule report:
     message: "Compile report.{wildcards.suffix}."
     input:
-        "report/literature.bib",
+        "report/literature.yaml",
         "report/report.md",
-        "report/energy-policy.csl",
         "report/pandoc-metadata.yaml",
+        "report/apa.csl",
         "report/report.css",
         rules.plot.output
     params: options = pandoc_options

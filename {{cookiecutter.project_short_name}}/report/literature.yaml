@@ -1,0 +1,44 @@
+---
+references:
+- id: 'Trondle:2019'
+  author:
+    - family: Tröndle
+      given: Tim
+    - family: Pfenninger
+      given: Stefan
+    - family: Lilliestam
+      given: Johan
+  container-title: Energy Strategy Reviews
+  DOI: 10.1016/j.esr.2019.100388
+  issued:
+    - year: 2019
+      month: 8
+      day: 13
+  title: >-
+    Home-made or imported: on the possibility for renewable electricity autarky
+    on all scales in Europe
+  type: article-journal
+  volume: '26'
+
+- id: 'Trondle:2020'
+  accessed:
+    - year: 2020
+      month: 2
+      day: 22
+  author:
+    - family: Tröndle
+      given: Tim
+  DOI: 10.5281/zenodo.3949794
+  event-place: Potsdam
+  genre: Python
+  issued:
+    - year: 2020
+      month: 7
+      day: 17
+  publisher: Institute for Advanced Sustainability Studies
+  publisher-place: Potsdam
+  title: euro-calliope
+  type: book
+  URL: 'https://github.com/calliope-project/euro-calliope/releases/tag/v1.0'
+  version: v1.0
+...

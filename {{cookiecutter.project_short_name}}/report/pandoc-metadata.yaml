@@ -4,12 +4,11 @@ author:
     - {{cookiecutter.author}}
 institute: {{cookiecutter.institute}}
 tags:
-    - 'reproducible-research'
+    - reproducible-research
 abstract: |
     {{cookiecutter.short_description}}
-bibliography:
-    - 'literature.bib'
-csl: 'energy-policy.csl'
+bibliography: literature.yaml
+csl: apa.csl
 link-citations: True
 date: {% now 'utc', '%Y-%m-%d' %}
 ---

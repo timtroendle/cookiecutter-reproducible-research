@@ -18,8 +18,8 @@ The generated repository will have the following structure:
 │   ├── report.yaml         <- Environment for compilation of the report.
 │   └── test.yaml           <- Environment for executing tests.
 ├── report                  <- All files creating the final report, usually text and figures.
-│   ├── energy-policy.csl   <- Citation style definition to be used in the report.
-│   ├── literature.bib      <- Bibliography file for the report.
+│   ├── apa.csl             <- Citation style definition to be used in the report.
+│   ├── literature.yaml     <- Bibliography file for the report.
 │   ├── report.md           <- The report in Markdown.
 │   └── pandoc-metadata.yaml<- Metadata for the report.
 ├── src                     <- Source code goes in here.
