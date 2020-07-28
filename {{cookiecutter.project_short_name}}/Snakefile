@@ -46,8 +46,8 @@ rule report:
     input:
         "report/literature.bib",
         "report/report.md",
-        "report/pandoc-metadata.yml",
         "report/energy-policy.csl",
+        "report/pandoc-metadata.yaml",
         "report/report.css",
         rules.plot.output
     params: options = pandoc_options
@@ -60,7 +60,7 @@ rule report:
         """
         cd report
         ln -s ../build .
-        {PANDOC} report.md pandoc-metadata.yml {params.options} \
+        {PANDOC} report.md  --metadata-file=pandoc-metadata.yaml {params.options} \
         -o ../build/report.{wildcards.suffix}
         """
 

@@ -21,7 +21,7 @@ The generated repository will have the following structure:
 │   ├── energy-policy.csl   <- Citation style definition to be used in the report.
 │   ├── literature.bib      <- Bibliography file for the report.
 │   ├── report.md           <- The report in Markdown.
-│   └── pandoc-metadata.yml <- Metadata for the report.
+│   └── pandoc-metadata.yaml<- Metadata for the report.
 ├── src                     <- Source code goes in here.
 │   ├── __init__.py         <- Makes `src` a Python module.
 │   ├── model.py            <- Demo file.
