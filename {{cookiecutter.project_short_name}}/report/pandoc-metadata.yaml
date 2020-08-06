@@ -10,5 +10,9 @@ abstract: |
 bibliography: literature.yaml
 csl: apa.csl
 link-citations: True
+lang: en-GB
+xnos-cleveref: True
+fignos-plus-name: Figure
+tablenos-plus-name: Table
 date: {% now 'utc', '%Y-%m-%d' %}
 ---
