@@ -1,0 +1,32 @@
+name: Reproduction
+on: [push, pull_request]
+jobs:
+    build_article:
+        name: Reproduce the demo analysis
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash -l {0}
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup cookiecutter environment
+              uses: conda-incubator/setup-miniconda@v2
+              with:
+                auto-update-conda: true
+                python-version: 3.8
+                add-pip-as-python-dependency: true
+            - name: Install cookiecutter
+              run: pip install cookiecutter
+            - name: Apply cookiecutter
+              run: cookiecutter . --no-input
+            - name: Setup Snakemake environment
+              uses: conda-incubator/setup-miniconda@v2
+              with:
+                auto-update-conda: true
+                python-version: 3.8
+                activate-environment: reproducible-research-project
+                environment-file: reproducible-research-project/environment.yaml
+            - name: Reproduce results
+              run: |
+                cd reproducible-research-project
+                snakemake --cores 1 --use-conda

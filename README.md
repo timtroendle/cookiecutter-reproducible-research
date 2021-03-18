@@ -1,3 +1,5 @@
+![Reproduction](https://github.com/timtroendle/cookiecutter-reproducible-research/actions/workflows/reproduction.yaml/badge.svg)
+
 # cookiecutter-reproducible-research
 
 This repository provides a [cookiecutter](http://cookiecutter.readthedocs.io) template for reproducible research projects. It does not attempt to be generic, but has a clear and opinionated focus.
