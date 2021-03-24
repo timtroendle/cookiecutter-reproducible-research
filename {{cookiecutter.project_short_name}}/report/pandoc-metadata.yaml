@@ -10,6 +10,9 @@ abstract: |
 bibliography: literature.yaml
 csl: apa.csl
 link-citations: True
+css:
+    - reset.css
+    - report.css
 lang: en-GB
 xnos-cleveref: True
 fignos-plus-name: Figure

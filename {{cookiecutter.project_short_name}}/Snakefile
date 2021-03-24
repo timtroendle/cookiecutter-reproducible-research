@@ -32,9 +32,9 @@ rule plot:
 def pandoc_options(wildcards):
     suffix = wildcards["suffix"]
     if suffix == "html":
-        return "--self-contained --css=report.css --to html5"
+        return "--self-contained --to html5"
     elif suffix == "pdf":
-        return "--css=report.css --pdf-engine weasyprint"
+        return "--pdf-engine weasyprint"
     elif suffix == "docx":
         return []
     else:
@@ -48,6 +48,7 @@ rule report:
         "report/report.md",
         "report/pandoc-metadata.yaml",
         "report/apa.csl",
+        "report/reset.css",
         "report/report.css",
         rules.plot.output
     params: options = pandoc_options
