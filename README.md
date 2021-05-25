@@ -24,7 +24,7 @@ The generated repository will have the following structure:
 │   ├── literature.yaml     <- Bibliography file for the report.
 │   ├── report.md           <- The report in Markdown.
 │   └── pandoc-metadata.yaml<- Metadata for the report.
-├── src                     <- Source code goes in here.
+├── scripts                 <- Scripts go in here.
 │   ├── model.py            <- Demo file.
 │   └── vis.py              <- Demo file.
 ├── tests                   <- Automatic tests of the source code go in here.

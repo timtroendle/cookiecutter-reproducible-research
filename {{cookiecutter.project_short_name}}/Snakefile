@@ -16,23 +16,23 @@ rule all:
 
 rule run:
     message: "Runs the demo model."
-    input: "src/model.py"
+    input: "scripts/model.py"
     params:
         slope = 4,
         x0 = 5
     output: "build/results.pickle"
     conda: "envs/default.yaml"
-    script: "src/model.py"
+    script: "scripts/model.py"
 
 
 rule plot:
     message: "Visualises the demo results."
     input:
-        src = "src/vis.py",
+        scripts = "scripts/vis.py",
         results = rules.run.output
     output: "build/plot.png"
     conda: "envs/default.yaml"
-    script: "src/vis.py"
+    script: "scripts/vis.py"
 
 
 def pandoc_options(wildcards):

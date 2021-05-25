@@ -35,7 +35,7 @@ To generate a PDF of the dependency graph of all steps, and if you have `dot` in
 ## Repo structure
 
 * `report`: contains all files necessary to build the report; plots and result files are not in here but generated automatically
-* `src`: contains the Python source code
+* `scripts`: contains the Python source code as scripts
 * `envs`: contains execution environments
 * `tests`: contains the test code
 * `config`: configurations used in the study
