@@ -22,6 +22,12 @@ To generate a PDF of the dependency graph of all steps, and if you have `dot` in
 
     snakemake --rulegraph | dot -Tpdf > dag.pdf
 
+## Be notified of build successes or fails
+
+  As the execution of this workflow may take a while, you can be notified whenever the execution terminates either successfully or unsuccessfully. Notifications are sent by email. To activate notifications, add the email address of the recipient to the configuration key `email`. You can add the key to your configuration file, or you can run the workflow the following way to receive notifications:
+
+      snakemake --use-conda --config email=<your-email>
+
 ## Run the tests
 
     snakemake test --use-conda

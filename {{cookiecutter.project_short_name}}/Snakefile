@@ -1,5 +1,11 @@
 PANDOC = "pandoc --filter pantable --filter pandoc-fignos --filter pandoc-tablenos --citeproc"
 
+onsuccess:
+    if "email" in config.keys():
+        shell("echo "" | mail -s '{{cookiecutter.project_short_name}} succeeded' {config[email]}")
+onerror:
+    if "email" in config.keys():
+        shell("echo "" | mail -s '{{cookiecutter.project_short_name}} failed' {config[email]}")
 
 rule all:
     message: "Run entire analysis and compile report."
