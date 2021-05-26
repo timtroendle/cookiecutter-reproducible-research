@@ -1,3 +1,11 @@
 # The right place for all your configuration values.
 slope: 4
 x0: 5
+{% if cookiecutter._add_cluster_infrastructure == True -%}
+cluster-sync:
+    url: {{ cookiecutter.cluster_url }}
+    send-ignore: .syncignore-send
+    receive-ignore: .syncignore-receive
+    cluster-base-dir: {{ cookiecutter.cluster_base_dir }}
+    local-results-dir: build/cluster
+{%- endif %}

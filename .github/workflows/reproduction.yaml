@@ -1,12 +1,12 @@
 name: Reproduction
 on: [push, pull_request]
+defaults:
+    run:
+        shell: bash -l {0}
 jobs:
     run_default_workflow:
         name: Reproduce the default demo analysis
         runs-on: ubuntu-latest
-        defaults:
-            run:
-                shell: bash -l {0}
         steps:
             - uses: actions/checkout@v2
             - name: Setup cookiecutter environment
@@ -33,9 +33,6 @@ jobs:
     run_cluster_workflow:
         name: Reproduce the cluster demo analysis (run locally only)
         runs-on: ubuntu-latest
-        defaults:
-            run:
-                shell: bash -l {0}
         steps:
             - uses: actions/checkout@v2
             - name: Setup cookiecutter environment

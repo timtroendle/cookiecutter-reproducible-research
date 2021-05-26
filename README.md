@@ -2,17 +2,17 @@
 
 # cookiecutter-reproducible-research
 
-This repository provides [cookiecutter](http://cookiecutter.readthedocs.io) templates for reproducible research projects. It does not attempt to be generic, but has a clear and opinionated focus.
+This repository provides [cookiecutter](http://cookiecutter.readthedocs.io) templates for reproducible research projects. The templates do not attempt to be generic, but have a clear and opinionated focus.
 
-Projects build with this template aim at full automation, and use `Python 3.8`, `conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
+Projects build with these templates aim at full automation, and use `Python 3.8`, `conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
 
-The template includes a few lines of code as a demo to allow you to create a HTML report out of simulated results right away. Read the `README.md` in the generated repository to see how.
+The template includes a few lines of code as a demo to allow you to create a HTML report out of made-up simulation results right away. Read the `README.md` in the generated repository to see how.
 
 ## Template types
 
 > default
 
-This is the basic structure of a reproducible workflow.
+This generates the basic structure of a reproducible workflow.
 
 > cluster
 
@@ -37,6 +37,14 @@ Parameter | Description
 `author` | Your name.
 `institute` | The name of your institute, used for report metadata.
 `short_description` | A short description of the project, used for documentation and report.
+
+The `cluster` template requires the following parameter values in addition:
+
+Parameter | Description
+--- | ---
+`cluster_url` | The address of the cluster to allow syncing to and from the cluster.
+`cluster_base_dir` | The base path for the project on the cluster (default: `~/<project-short-name>`).
+`cluster_type` | The type of job scheduler used on the cluster. Currently, only LSF is supported.
 
 ## Project Structure
 
@@ -68,6 +76,21 @@ The generated repository will have the following structure:
 ├── LICENSE.md              <- MIT license description
 ├── Snakefile               <- Description of all computational steps to create results.
 └── README.md
+```
+
+`cluster` templates additionally contain the following files:
+
+```
+├── config
+│   └── cluster                 <- Cluster configuration.
+│       ├── cluster-config.yaml <- A Snakemake cluster-config file.
+│       └── config.yaml         <- A set of Snakemake command-line parameters for cluster execution.
+├── envs
+│   └── shell.yaml              <- An environment for shell rules.
+├── rules
+│   └── sync.yaml               <- Snakemake rules to sync to and from the cluster.
+├── .syncignore-receive         <- Build files to ignore when receiving from the cluster.
+└── .syncignore-send            <- Local files to ignore when sending to the cluster.
 ```
 
 ## License
