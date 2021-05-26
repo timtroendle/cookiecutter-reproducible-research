@@ -25,6 +25,7 @@ The generated repository will have the following structure:
 │   ├── literature.yaml     <- Bibliography file for the report.
 │   ├── report.md           <- The report in Markdown.
 │   └── pandoc-metadata.yaml<- Metadata for the report.
+├── rules                   <- The place for all your Snakemake rules.
 ├── scripts                 <- Scripts go in here.
 │   ├── model.py            <- Demo file.
 │   └── vis.py              <- Demo file.
