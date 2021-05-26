@@ -14,6 +14,7 @@ The generated repository will have the following structure:
 
 ```
 ├── config                  <- Configuration files, e.g., for your model if needed.
+│   └── default.yaml        <- Default set of configuration parameter values.
 ├── data                    <- Raw input data.
 ├── envs                    <- Execution environments.
 │   ├── default.yaml        <- Default execution environment.
