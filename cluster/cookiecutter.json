@@ -4,5 +4,8 @@
     "author": "Your name",
     "institute": "Your institution",
     "short_description": "A short description of this project.",
-    "_add_cluster_infrastructure": false
+    "cluster_url": "cluster.example.org",
+    "cluster_base_dir": "~/Develop",
+    "cluster_type": ["LSF"],
+    "_add_cluster_infrastructure": true
 }

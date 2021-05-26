@@ -2,11 +2,41 @@
 
 # cookiecutter-reproducible-research
 
-This repository provides a [cookiecutter](http://cookiecutter.readthedocs.io) template for reproducible research projects. It does not attempt to be generic, but has a clear and opinionated focus.
+This repository provides [cookiecutter](http://cookiecutter.readthedocs.io) templates for reproducible research projects. It does not attempt to be generic, but has a clear and opinionated focus.
 
 Projects build with this template aim at full automation, and use `Python 3.8`, `conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
 
 The template includes a few lines of code as a demo to allow you to create a HTML report out of simulated results right away. Read the `README.md` in the generated repository to see how.
+
+## Template types
+
+> default
+
+This is the basic structure of a reproducible workflow.
+
+> cluster
+
+The cluster template extends the basic template by adding infrastructure to support running on a compute cluster.
+
+## Getting Started
+
+Make sure you have cookiecutter installed, otherwise install it with [conda](https://conda.io/docs/index.html):
+
+    conda install cookiecutter -c conda-forge
+
+Then create a repository using:
+
+    cookiecutter gh:timtroendle/cookiecutter-reproducible-research --directory=[default/cluster]
+
+You will be asked for the following parameters:
+
+Parameter | Description
+--- | ---
+`project_name` | The name of your project, used in the documentation and report.
+`project_short_name` | An abbreviation, used for environments and such. Avoid special characters and whitespace.
+`author` | Your name.
+`institute` | The name of your institute, used for report metadata.
+`short_description` | A short description of the project, used for documentation and report.
 
 ## Project Structure
 
@@ -39,26 +69,6 @@ The generated repository will have the following structure:
 ├── Snakefile               <- Description of all computational steps to create results.
 └── README.md
 ```
-
-## Getting Started
-
-Make sure you have cookiecutter installed, otherwise install it with [conda](https://conda.io/docs/index.html):
-
-    conda install cookiecutter -c conda-forge
-
-Then create a repository using:
-
-    cookiecutter gh:timtroendle/cookiecutter-reproducible-research --directory=default
-
-You will be asked for the following parameters:
-
-Parameter | Description
---- | ---
-`project_name` | The name of your project, used in the documentation and report.
-`project_short_name` | An abbreviation, used for environments and such. Avoid special characters and whitespace.
-`author` | Your name.
-`institute` | The name of your institute, used for report metadata.
-`short_description` | A short description of the project, used for documentation and report.
 
 ## License
 
