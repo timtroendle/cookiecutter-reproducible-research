@@ -46,7 +46,7 @@ Make sure you have cookiecutter installed, otherwise install it with [conda](htt
 
 Then create a repository using:
 
-    cookiecutter gh:timtroendle/cookiecutter-reproducible-research
+    cookiecutter gh:timtroendle/cookiecutter-reproducible-research --directory=default
 
 You will be asked for the following parameters:
 
