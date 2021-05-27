@@ -1,0 +1,11 @@
+{
+    "project_name": "Reproducible Research Project",
+    "project_short_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "author": "Your name",
+    "institute": "Your institution",
+    "short_description": "A short description of this project.",
+    "cluster_url": "cluster.example.org",
+    "cluster_base_dir": "~/{{ cookiecutter.project_short_name }}",
+    "cluster_type": ["LSF"],
+    "_add_cluster_infrastructure": true
+}

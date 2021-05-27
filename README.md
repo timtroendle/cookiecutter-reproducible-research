@@ -2,11 +2,49 @@
 
 # cookiecutter-reproducible-research
 
-This repository provides a [cookiecutter](http://cookiecutter.readthedocs.io) template for reproducible research projects. It does not attempt to be generic, but has a clear and opinionated focus.
+This repository provides [cookiecutter](http://cookiecutter.readthedocs.io) templates for reproducible research projects. The templates do not attempt to be generic, but have a clear and opinionated focus.
 
-Projects build with this template aim at full automation, and use `Python 3.8`, `conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
+Projects build with these templates aim at full automation, and use `Python 3.8`, `conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
 
-The template includes a few lines of code as a demo to allow you to create a HTML report out of simulated results right away. Read the `README.md` in the generated repository to see how.
+The template includes a few lines of code as a demo to allow you to create a HTML report out of made-up simulation results right away. Read the `README.md` in the generated repository to see how.
+
+## Template types
+
+> default
+
+This generates the basic structure of a reproducible workflow.
+
+> cluster
+
+The cluster template extends the basic template by adding infrastructure to support running on a compute cluster.
+
+## Getting Started
+
+Make sure you have cookiecutter installed, otherwise install it with [conda](https://conda.io/docs/index.html):
+
+    conda install cookiecutter -c conda-forge
+
+Then create a repository using:
+
+    cookiecutter gh:timtroendle/cookiecutter-reproducible-research --directory=[default/cluster]
+
+You will be asked for the following parameters:
+
+Parameter | Description
+--- | ---
+`project_name` | The name of your project, used in the documentation and report.
+`project_short_name` | An abbreviation, used for environments and such. Avoid special characters and whitespace.
+`author` | Your name.
+`institute` | The name of your institute, used for report metadata.
+`short_description` | A short description of the project, used for documentation and report.
+
+The `cluster` template requires the following parameter values in addition:
+
+Parameter | Description
+--- | ---
+`cluster_url` | The address of the cluster to allow syncing to and from the cluster.
+`cluster_base_dir` | The base path for the project on the cluster (default: `~/<project-short-name>`).
+`cluster_type` | The type of job scheduler used on the cluster. Currently, only LSF is supported.
 
 ## Project Structure
 
@@ -14,6 +52,7 @@ The generated repository will have the following structure:
 
 ```
 ├── config                  <- Configuration files, e.g., for your model if needed.
+│   └── default.yaml        <- Default set of configuration parameter values.
 ├── data                    <- Raw input data.
 ├── envs                    <- Execution environments.
 │   ├── default.yaml        <- Default execution environment.
@@ -24,6 +63,7 @@ The generated repository will have the following structure:
 │   ├── literature.yaml     <- Bibliography file for the report.
 │   ├── report.md           <- The report in Markdown.
 │   └── pandoc-metadata.yaml<- Metadata for the report.
+├── rules                   <- The place for all your Snakemake rules.
 ├── scripts                 <- Scripts go in here.
 │   ├── model.py            <- Demo file.
 │   └── vis.py              <- Demo file.
@@ -38,25 +78,20 @@ The generated repository will have the following structure:
 └── README.md
 ```
 
-## Getting Started
+`cluster` templates additionally contain the following files:
 
-Make sure you have cookiecutter installed, otherwise install it with [conda](https://conda.io/docs/index.html):
-
-    conda install cookiecutter -c conda-forge
-
-Then create a repository using:
-
-    cookiecutter gh:timtroendle/cookiecutter-reproducible-research
-
-You will be asked for the following parameters:
-
-Parameter | Description
---- | ---
-`project_name` | The name of your project, used in the documentation and report.
-`project_short_name` | An abbreviation, used for environments and such. Avoid special characters and whitespace.
-`author` | Your name.
-`institute` | The name of your institute, used for report metadata.
-`short_description` | A short description of the project, used for documentation and report.
+```
+├── config
+│   └── cluster                 <- Cluster configuration.
+│       ├── cluster-config.yaml <- A Snakemake cluster-config file.
+│       └── config.yaml         <- A set of Snakemake command-line parameters for cluster execution.
+├── envs
+│   └── shell.yaml              <- An environment for shell rules.
+├── rules
+│   └── sync.yaml               <- Snakemake rules to sync to and from the cluster.
+├── .syncignore-receive         <- Build files to ignore when receiving from the cluster.
+└── .syncignore-send            <- Local files to ignore when sending to the cluster.
+```
 
 ## License
 
