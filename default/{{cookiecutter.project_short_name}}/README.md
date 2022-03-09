@@ -18,9 +18,9 @@ This will run all analysis steps to reproduce results and eventually build the r
 
 You can also run certain parts only by using other `snakemake` rules; to get a list of all rules run `snakemake --list`.
 
-To generate a PDF of the dependency graph of all steps, and if you have `dot` installed, run:
+To generate a PDF of the dependency graph of all steps `build/dag.pdf` run:
 
-    snakemake --rulegraph | dot -Tpdf > dag.pdf
+    snakemake --use-conda --cores 1 -f dag
 
 {% if cookiecutter._add_cluster_infrastructure == True -%}
 ## Run on a cluster
