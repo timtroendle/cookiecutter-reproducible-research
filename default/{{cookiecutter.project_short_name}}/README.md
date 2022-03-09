@@ -12,7 +12,7 @@ You need [conda](https://conda.io/docs/index.html) to run the analysis. Using co
 
 ## Run the analysis
 
-    snakemake  --use-conda
+    snakemake --cores 1 --use-conda
 
 This will run all analysis steps to reproduce results and eventually build the report.
 
@@ -46,11 +46,11 @@ To remove cluster results on your local machine, run `snakemake --use-conda clea
 
   As the execution of this workflow may take a while, you can be notified whenever the execution terminates either successfully or unsuccessfully. Notifications are sent by email. To activate notifications, add the email address of the recipient to the configuration key `email`. You can add the key to your configuration file, or you can run the workflow the following way to receive notifications:
 
-      snakemake --use-conda --config email=<your-email>
+      snakemake --cores 1 --use-conda --config email=<your-email>
 
 ## Run the tests
 
-    snakemake test --use-conda
+    snakemake --use-conda --cores 1 test
 
 ## Repo structure
 
