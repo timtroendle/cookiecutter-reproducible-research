@@ -13,7 +13,7 @@ jobs:
               uses: conda-incubator/setup-miniconda@v2
               with:
                 auto-update-conda: true
-                python-version: 3.8
+                python-version: "3.10"
                 add-pip-as-python-dependency: true
             - name: Install cookiecutter
               run: pip install cookiecutter
@@ -23,7 +23,8 @@ jobs:
               uses: conda-incubator/setup-miniconda@v2
               with:
                 auto-update-conda: true
-                python-version: 3.8
+                python-version: "3.10"
+                mamba-version: "*"
                 activate-environment: reproducible-research-project
                 environment-file: reproducible-research-project/environment.yaml
             - name: Reproduce results
@@ -43,7 +44,7 @@ jobs:
               uses: conda-incubator/setup-miniconda@v2
               with:
                 auto-update-conda: true
-                python-version: 3.8
+                python-version: "3.10"
                 add-pip-as-python-dependency: true
             - name: Install cookiecutter
               run: pip install cookiecutter
@@ -53,7 +54,8 @@ jobs:
               uses: conda-incubator/setup-miniconda@v2
               with:
                 auto-update-conda: true
-                python-version: 3.8
+                python-version: "3.10"
+                mamba-version: "*"
                 activate-environment: reproducible-research-project
                 environment-file: reproducible-research-project/environment.yaml
             - name: Reproduce results
