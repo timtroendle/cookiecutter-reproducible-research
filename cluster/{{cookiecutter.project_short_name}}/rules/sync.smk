@@ -10,7 +10,7 @@ rule send:
     conda: "../envs/shell.yaml"
     shell:
         """
-        rsync -avzh --progress --delete -r . --exclude-from={params.send_ignore} \
+        rsync -avzh --progress --delete --no-p --no-g --chmod=ugo=rwX -r . --exclude-from={params.send_ignore} \
         {params.url}:{params.cluster_base_dir}
         """
 
