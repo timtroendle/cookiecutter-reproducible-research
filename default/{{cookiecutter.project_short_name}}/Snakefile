@@ -4,9 +4,9 @@ PANDOC = "pandoc --filter pantable --filter pandoc-fignos --filter pandoc-tablen
 configfile: "config/default.yaml"
 {% if cookiecutter._add_cluster_infrastructure == True -%}
 include: "./rules/sync.smk"
-min_version("7.8")
 localrules: all, report, clean
 {%- endif %}
+min_version("7.8")
 
 {% if cookiecutter._add_cluster_infrastructure == True -%}
 onstart:
