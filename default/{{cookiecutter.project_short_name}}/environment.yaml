@@ -5,4 +5,4 @@ channels:
 dependencies:
     - python=3.10
     - flake8=3.8.3
-    - snakemake-minimal=6.5.3
+    - snakemake-minimal=7.8.5

@@ -1,8 +1,10 @@
+from snakemake.utils import min_version
 PANDOC = "pandoc --filter pantable --filter pandoc-fignos --filter pandoc-tablenos --citeproc"
 
 configfile: "config/default.yaml"
 {% if cookiecutter._add_cluster_infrastructure == True -%}
 include: "./rules/sync.smk"
+min_version("7.8")
 localrules: all, report, clean
 {%- endif %}
 
@@ -26,7 +28,6 @@ rule all:
 
 rule run:
     message: "Runs the demo model."
-    input: "scripts/model.py"
     params:
         slope = config["slope"],
         x0 = config["x0"]
@@ -38,7 +39,6 @@ rule run:
 rule plot:
     message: "Visualises the demo results."
     input:
-        scripts = "scripts/vis.py",
         results = rules.run.output
     output: "build/plot.png"
     conda: "envs/default.yaml"
