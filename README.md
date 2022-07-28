@@ -58,6 +58,9 @@ The generated repository will have the following structure:
 │   ├── default.yaml        <- Default execution environment.
 │   ├── report.yaml         <- Environment for compilation of the report.
 │   └── test.yaml           <- Environment for executing tests.
+├── profiles                <- Snakemake profiles.
+│   └── default             <- Default Snakemake profile folder.
+│       └── config.yaml     <- Default Snakemake profile.
 ├── report                  <- All files creating the final report, usually text and figures.
 │   ├── apa.csl             <- Citation style definition to be used in the report.
 │   ├── literature.yaml     <- Bibliography file for the report.
@@ -81,12 +84,11 @@ The generated repository will have the following structure:
 `cluster` templates additionally contain the following files:
 
 ```
-├── config
-│   └── cluster                 <- Cluster configuration.
-│       ├── cluster-config.yaml <- A Snakemake cluster-config file.
-│       └── config.yaml         <- A set of Snakemake command-line parameters for cluster execution.
 ├── envs
 │   └── shell.yaml              <- An environment for shell rules.
+├── profiles                    <- Snakemake profiles.
+│   └── cluster                 <- Cluster Snakemake profile folder.
+│       └── config.yaml         <- Cluster Snakemake profile.
 ├── rules
 │   └── sync.yaml               <- Snakemake rules to sync to and from the cluster.
 ├── .syncignore-receive         <- Build files to ignore when receiving from the cluster.

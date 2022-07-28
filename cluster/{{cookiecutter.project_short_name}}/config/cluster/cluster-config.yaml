@@ -1,6 +1,0 @@
-__default__:
-    runtime: 10
-    cores: 1
-    memory: 16000
-    output: "build/logs/{rule}.{wildcards}.log"
-    name: "{rule}.{wildcards}"
