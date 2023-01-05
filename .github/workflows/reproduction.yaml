@@ -30,11 +30,11 @@ jobs:
             - name: Reproduce results
               run: |
                 cd reproducible-research-project
-                snakemake --profile profiles/default
+                snakemake
             - name: Generate DAG
               run: |
                 cd reproducible-research-project
-                snakemake --profile profiles/default -f dag
+                snakemake -f dag
     run_cluster_workflow:
         name: Reproduce the cluster demo analysis (run locally only)
         runs-on: ubuntu-latest
@@ -61,8 +61,8 @@ jobs:
             - name: Reproduce results
               run: |
                 cd reproducible-research-project
-                snakemake --profile profiles/default
+                snakemake
             - name: Generate DAG
               run: |
                 cd reproducible-research-project
-                snakemake --profile profiles/default -f dag
+                snakemake -f dag
