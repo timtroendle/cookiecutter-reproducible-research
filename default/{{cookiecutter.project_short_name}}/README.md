@@ -12,7 +12,7 @@ You need [mamba](https://mamba.readthedocs.io/en/latest/) to run the analysis. U
 
 ## Run the analysis
 
-    snakemake --profile profiles/default
+    snakemake
 
 This will run all analysis steps to reproduce results and eventually build the report.
 
@@ -20,7 +20,7 @@ You can also run certain parts only by using other `snakemake` rules; to get a l
 
 To generate a PDF of the dependency graph of all steps `build/dag.pdf` run:
 
-    snakemake --profile profiles/default -f dag
+    snakemake -f dag
 
 {% if cookiecutter._add_cluster_infrastructure == True -%}
 ## Run on a cluster
@@ -35,22 +35,22 @@ If you want to run on another cluster, read [snakemake's documentation on cluste
 
 You may want to work locally (to change configuration parameters, add modules etc), but execute remotely on the cluster. This workflow supports you in working this way through three Snakemake rules: `send`, `receive`, and `clean_cluster_results`. It works like the following.
 
-First, start local and make sure the `cluster-sync` configuration parameters fit your environment. Next, run `snakemake --profile profiles/default send` to send the entire repository to your cluster. On the cluster, execute the workflow with Snakemake (see above). After the workflow has finished, download results by locally running `snakemake --profile profiles/default receive`. By default, this will download results into `build/cluster`.
+First, start local and make sure the `cluster-sync` configuration parameters fit your environment. Next, run `snakemake send` to send the entire repository to your cluster. On the cluster, execute the workflow with Snakemake (see above). After the workflow has finished, download results by locally running `snakemake receive`. By default, this will download results into `build/cluster`.
 
-This workflow works iteratively too. After analysing your cluster results locally, you may want to make changes locally, send these changes to the cluster (`snakemake --profile profiles/default send`), rerun on the cluster, and download updated results (`snakemake --profile profiles/default receive`).
+This workflow works iteratively too. After analysing your cluster results locally, you may want to make changes locally, send these changes to the cluster (`snakemake send`), rerun on the cluster, and download updated results (`snakemake receive`).
 
-To remove cluster results on your local machine, run `snakemake --profile profiles/default clean_cluster_results`.
+To remove cluster results on your local machine, run `snakemake clean_cluster_results`.
 {%- endif %}
 
 ## Be notified of build successes or fails
 
   As the execution of this workflow may take a while, you can be notified whenever the execution terminates either successfully or unsuccessfully. Notifications are sent by email. To activate notifications, add the email address of the recipient to the configuration key `email`. You can add the key to your configuration file, or you can run the workflow the following way to receive notifications:
 
-      snakemake --profile profiles/default --config email=<your-email>
+      snakemake --config email=<your-email>
 
 ## Run the tests
 
-    snakemake --profile profiles/default test
+    snakemake test
 
 ## Repo structure
 
