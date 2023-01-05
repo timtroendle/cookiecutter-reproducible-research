@@ -1,5 +1,9 @@
 name: Reproduction
-on: [push, pull_request]
+on:
+    push:
+        branches:
+            - main
+    pull_request:
 defaults:
     run:
         shell: bash -l {0}
