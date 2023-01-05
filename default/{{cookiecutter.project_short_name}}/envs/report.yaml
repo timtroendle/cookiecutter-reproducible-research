@@ -2,12 +2,12 @@ name: report
 channels:
     - conda-forge
 dependencies:
-    - python=3.9
-    - pango=1.50.3
-    - cairocffi==1.1.0
-    - psutil=5.7.2
-    - weasyprint==54.0
-    - pandoc=2.11.3.2
+    - python=3.10
+    - pango=1.50.12
+    - cairocffi=1.4.0
+    - psutil=5.9.4
+    - weasyprint=57.2
+    - pandoc=2.19.2
     - pip=22.0.4
     - pip:
         - pandoc-xnos==2.5.0
