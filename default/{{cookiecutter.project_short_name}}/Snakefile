@@ -48,7 +48,7 @@ rule plot:
 def pandoc_options(wildcards):
     suffix = wildcards["suffix"]
     if suffix == "html":
-        return "--self-contained --to html5"
+        return "--embed-resources --standalone --to html5"
     elif suffix == "pdf":
         return "--pdf-engine weasyprint"
     elif suffix == "docx":
