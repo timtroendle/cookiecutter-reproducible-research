@@ -3,8 +3,8 @@ channels:
     - conda-forge
 dependencies:
     - python=3.11
-    - ipdb=0.13.11 # replaces default debugger with IPython debugger
-    - numpy=1.22.3
-    - pandas=1.4.1
-    - matplotlib=3.5.1
-    - seaborn=0.11.2
+    - ipdb=0.13.13 # replaces default debugger with IPython debugger
+    - numpy=1.24.3
+    - pandas=2.0.1
+    - matplotlib=3.7.1
+    - seaborn=0.12.2
