@@ -1,0 +1,1 @@
+../../../default/{{cookiecutter.project_short_name}}/scripts/__builtins__.pyi
