@@ -37,6 +37,7 @@ Parameter | Description
 `author` | Your name.
 `institute` | The name of your institute, used for report metadata.
 `short_description` | A short description of the project, used for documentation and report.
+`path_to_conda_envs` | The path to the directory hosting your conda envs (leave untouched for Snakemake default).
 
 The `cluster` template requires the following parameter values in addition:
 

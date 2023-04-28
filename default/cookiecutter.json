@@ -4,5 +4,6 @@
     "author": "Your name",
     "institute": "Your institution",
     "short_description": "A short description of this project.",
+    "path_to_conda_envs": "Snakemake-default",
     "_add_cluster_infrastructure": false
 }
