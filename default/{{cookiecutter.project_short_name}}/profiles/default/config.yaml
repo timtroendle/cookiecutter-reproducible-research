@@ -1,3 +1,6 @@
 use-conda: True
 conda-frontend: mamba
+{% if cookiecutter.path_to_conda_envs != "Snakemake-default" -%}
+conda-prefix: {{cookiecutter.path_to_conda_envs}}
+{% endif -%}
 cores: 1

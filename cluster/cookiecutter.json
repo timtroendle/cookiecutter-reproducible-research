@@ -4,6 +4,7 @@
     "author": "Your name",
     "institute": "Your institution",
     "short_description": "A short description of this project.",
+    "path_to_conda_envs": "Snakemake-default",
     "cluster_url": "cluster.example.org",
     "cluster_base_dir": "~/{{ cookiecutter.project_short_name }}",
     "cluster_type": ["LSF"],
