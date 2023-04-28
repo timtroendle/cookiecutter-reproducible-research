@@ -38,7 +38,7 @@ jobs:
             - name: Generate DAG
               run: |
                 cd reproducible-research-project
-                snakemake -f dag
+                snakemake dag
     run_cluster_workflow:
         name: Reproduce the cluster demo analysis (run locally only)
         runs-on: ubuntu-latest
@@ -69,4 +69,4 @@ jobs:
             - name: Generate DAG
               run: |
                 cd reproducible-research-project
-                snakemake -f dag
+                snakemake dag

@@ -84,14 +84,11 @@ rule report:
 
 rule dag:
      message: "Plot dependency graph of the workflow."
-     output:
-         dot = "build/dag.dot",
-         pdf = "build/dag.pdf"
      conda: "envs/dag.yaml"
      shell:
          """
-         snakemake --rulegraph > {output.dot}
-         dot -Tpdf -o {output.pdf} {output.dot}
+         snakemake --rulegraph > build/dag.dot
+         dot -Tpdf -o build/dag.pdf build/dag.dot
          """
 
 

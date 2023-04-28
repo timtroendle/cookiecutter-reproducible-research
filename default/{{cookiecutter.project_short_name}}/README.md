@@ -20,7 +20,7 @@ You can also run certain parts only by using other `snakemake` rules; to get a l
 
 To generate a PDF of the dependency graph of all steps `build/dag.pdf` run:
 
-    snakemake -f dag
+    snakemake dag
 
 {% if cookiecutter._add_cluster_infrastructure == True -%}
 ## Run on a cluster
