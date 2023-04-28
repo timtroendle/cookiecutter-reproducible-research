@@ -6,6 +6,9 @@ latency-wait: 60
 use-envmodules: True
 use-conda: True
 conda-frontend: mamba
+{% if cookiecutter.path_to_conda_envs != "Snakemake-default" -%}
+conda-prefix: {{cookiecutter.path_to_conda_envs}}
+{% endif -%}
 default-resources: [
     "runtime=10",
     "memory=16000"
