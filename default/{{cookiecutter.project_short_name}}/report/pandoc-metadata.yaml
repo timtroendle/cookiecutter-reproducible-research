@@ -14,8 +14,20 @@ css:
     - reset.css
     - report.css
 lang: en-GB
-xnos-cleveref: True
-fignos-plus-name: Figure
-tablenos-plus-name: Table
+figureTemplate: <span>$$figureTitle$$ $$i$$$$titleDelim$$</span> $$t$$
+tableTemplate: <span>$$tableTitle$$ $$i$$$$titleDelim$$</span> $$t$$
+figPrefix:
+    - "Figure"
+    - "Figures"
+tblPrefix:
+    - "Table"
+    - "Tables"
+eqnPrefix:
+    - "Equation"
+    - "Equations"
+secPrefix:
+    - "Section"
+    - "Sections"
+linkReferences: True
 date: {% now 'utc', '%Y-%m-%d' %}
 ---
