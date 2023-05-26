@@ -1,5 +1,5 @@
 from snakemake.utils import min_version
-PANDOC = "pandoc --filter pantable --filter pandoc-fignos --filter pandoc-tablenos --citeproc"
+PANDOC = "pandoc --filter pantable --filter pandoc-crossref --citeproc"
 
 configfile: "config/default.yaml"
 {% if cookiecutter._add_cluster_infrastructure == True -%}
