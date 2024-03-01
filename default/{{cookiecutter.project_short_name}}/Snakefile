@@ -23,7 +23,7 @@ rule all:
     message: "Run entire analysis and compile report."
     input:
         "build/report.html",
-        "build/test-report.html"
+        "build/test.success"
 
 
 rule run:
@@ -102,7 +102,16 @@ rule clean: # removes all generated results
 
 
 rule test:
-    conda: "envs/test.yaml"
-    output: "build/test-report.html"
-    shell:
-        "py.test --html={output} --self-contained-html"
+    # To add more tests, do
+    # (1) Add to-be-tested workflow outputs as inputs to this rule.
+    # (2) Turn them into pytest fixtures in tests/test_runner.py.
+    # (3) Create or reuse a test file in tests/my-test.py and use fixtures in tests.
+    message: "Run tests"
+    input:
+        test_dir = "tests",
+        tests = map(str, Path("tests").glob("**/test_*.py")),
+        model_results = rules.run.output[0],
+    log: "build/test-report.html"
+    output: "build/test.success"
+    conda: "./envs/test.yaml"
+    script: "./tests/test_runner.py"

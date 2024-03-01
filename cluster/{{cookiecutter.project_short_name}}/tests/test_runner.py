@@ -1,0 +1,1 @@
+../../../default/{{cookiecutter.project_short_name}}/tests/test_runner.py
