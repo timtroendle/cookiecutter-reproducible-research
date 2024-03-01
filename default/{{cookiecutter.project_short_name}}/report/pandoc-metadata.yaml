@@ -3,7 +3,7 @@ title: {{cookiecutter.project_name}}
 author:
     - {{cookiecutter.author}}
 institute: {{cookiecutter.institute}}
-tags:
+keywords:
     - reproducible-research
 abstract: |
     {{cookiecutter.short_description}}
