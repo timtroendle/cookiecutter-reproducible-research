@@ -1,5 +1,5 @@
 from snakemake.utils import min_version
-PANDOC = "pandoc --filter pantable --filter pandoc-crossref --citeproc"
+PANDOC = "pandoc --filter pantable --filter pandoc-crossref --citeproc -f markdown+mark"
 
 configfile: "config/default.yaml"
 {% if cookiecutter._add_cluster_infrastructure == True -%}
@@ -23,6 +23,7 @@ rule all:
     message: "Run entire analysis and compile report."
     input:
         "build/report.html",
+        "build/report.pdf",
         "build/test.success"
 
 

@@ -8,6 +8,6 @@
 
 ![The linear model.](../build/plot.png){ #fig:linear-model .class}
 
-This results confirm former findings in refs.\ [@Trondle:2019] and [@Trondle:2020].
+These results confirm former findings in refs.\ [@Trondle:2019] and [@Trondle:2020]. ==Double check==
 
 # References
