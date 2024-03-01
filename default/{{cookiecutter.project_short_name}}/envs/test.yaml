@@ -6,8 +6,7 @@ dependencies:
     - numpy=1.24.3
     - pandas=2.0.1
     - pytest=7.3.1
-    - pytest-html=3.2.0
+    - pytest-html=4.1.1
     - pip=23.1.2
     - pip:
         - pytest-pythonpath # adds the root path "./" to PYTHONPATH
-        - pytest-html==4.0.0rc1 # TODO move to offical release and conda-forge once available, see https://github.com/pytest-dev/pytest-html/issues/570
