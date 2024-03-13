@@ -1,7 +1,5 @@
 name: dag
 channels:
     - conda-forge
-    - bioconda
 dependencies:
-    - python=3.11
     - graphviz=2.50.0
