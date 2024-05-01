@@ -6,7 +6,7 @@ configfile: "config/default.yaml"
 include: "./rules/sync.smk"
 localrules: all, report, clean
 {%- endif %}
-min_version("7.8")
+min_version("8.10")
 
 {% if cookiecutter._add_cluster_infrastructure == True -%}
 onstart:

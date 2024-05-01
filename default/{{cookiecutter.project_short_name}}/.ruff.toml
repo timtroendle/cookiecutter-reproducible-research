@@ -1,0 +1,36 @@
+line-length = 88
+preview = true # required to activate many pycodestyle errors and warnings as of 2024-05-01
+builtins = ["snakemake"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = false
+line-ending = "auto"
+
+[lint]
+select = [
+    # pycodestyle errors
+    "E",
+    # pycodestyle warnings
+    "W",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+ignore = [
+    # here and below, rules are redundant with formatter, see
+    # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "E501",
+    "W191",
+    "E111",
+    "E114",
+    "E117",
+]

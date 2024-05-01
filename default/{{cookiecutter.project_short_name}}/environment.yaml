@@ -4,5 +4,4 @@ channels:
     - bioconda
 dependencies:
     - python=3.11
-    - flake8=3.8.3
     - snakemake-minimal=8.10.7

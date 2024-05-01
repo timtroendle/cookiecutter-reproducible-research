@@ -74,7 +74,7 @@ The generated repository will have the following structure:
 ├── tests                   <- Automatic tests of the source code go in here.
 │   └── test_model.py       <- Demo file.
 ├── .editorconfig           <- Editor agnostic configuration settings.
-├── .flake8                 <- Linting settings for flake8.
+├── .ruff                   <- Linter and formatter settings for ruff.
 ├── .gitignore
 ├── environment.yaml        <- A file to create an environment to execute your project in.
 ├── LICENSE.md              <- MIT license description
@@ -87,7 +87,7 @@ The generated repository will have the following structure:
 ```
 ├── envs
 │   └── shell.yaml              <- An environment for shell rules.
-├── profiles                    <- Snakemake profiles.
+├── profiles
 │   └── cluster                 <- Cluster Snakemake profile folder.
 │       └── config.yaml         <- Cluster Snakemake profile.
 ├── rules
