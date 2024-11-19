@@ -1,5 +1,7 @@
 name: Reproduction
 on:
+    schedule:
+        - cron: "0 3 8 * *" # Runs every eighth day of the month at 3am.
     push:
         branches:
             - main
