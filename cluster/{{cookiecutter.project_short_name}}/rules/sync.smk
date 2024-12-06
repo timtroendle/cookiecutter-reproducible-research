@@ -14,7 +14,6 @@ rule send:
         {params.url}:{params.cluster_base_dir}
         """
 
-
 rule receive:
     message: "Receive build changes from cluster"
     params:
@@ -27,7 +26,7 @@ rule receive:
     conda: "../envs/shell.yaml"
     shell:
         """
-        rsync -avzh --progress --delete -r --exclude-from={params.receive_ignore} \
+        rsync -avzhL --progress --delete -r --exclude-from={params.receive_ignore} \
         {params.url}:{params.cluster_build_dir} {params.local_results_dir}
         """
 

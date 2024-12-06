@@ -4,9 +4,11 @@
 
 This repository provides [cookiecutter](http://cookiecutter.readthedocs.io) templates for reproducible research projects. The templates do not attempt to be generic, but have a clear and opinionated focus.
 
-Projects build with these templates aim at full automation, and use `Python 3.11`, `mamba/conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
+Projects build with these templates aim at full automation, and use `Python 3.11`, `mamba/conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML and PDF report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
 
-The template includes a few lines of code as a demo to allow you to create a HTML report out of made-up simulation results right away. Read the `README.md` in the generated repository to see how.
+The template includes a few lines of code as a demo to allow you to create a report out of made-up simulation results right away. Read the `README.md` in the generated repository to see how.
+
+These templates are developed on macOS and tested on Linux. They may work with Windows Subsystem for Linux, but Windows is not actively supported.
 
 ## Template types
 
@@ -45,7 +47,8 @@ Parameter | Description
 --- | ---
 `cluster_url` | The address of the cluster to allow syncing to and from the cluster.
 `cluster_base_dir` | The base path for the project on the cluster (default: `~/<project-short-name>`).
-`cluster_type` | The type of job scheduler used on the cluster. Currently, only LSF is supported.
+`cluster_type` | The type of job scheduler used on the cluster. Currently, only Slurm is supported.
+`slurm_account` | The user account on Slurm.
 
 ## Project Structure
 

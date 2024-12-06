@@ -7,6 +7,8 @@
     "path_to_conda_envs": "Snakemake-default",
     "cluster_url": "cluster.example.org",
     "cluster_base_dir": "~/{{ cookiecutter.project_short_name }}",
-    "cluster_type": ["LSF"],
-    "_add_cluster_infrastructure": true
+    "cluster_type": ["Slurm"],
+    "slurm_account": "Your slurm account",
+    "_add_cluster_infrastructure": true,
+    "_jinja2_env_vars": {"lstrip_blocks": true, "trim_blocks": true}
 }
