@@ -1,4 +1,4 @@
-cluster: bsub -oo build/logs/{rule}.{wildcards}.log -W {resources.runtime} -n {threads} -R "rusage[mem={resources.memory}]" -J {rule}.{wildcards} <
+executor: slurm
 jobs: 999
 local-cores: 1
 cores: 10
@@ -6,10 +6,11 @@ latency-wait: 60
 use-envmodules: True
 use-conda: True
 conda-frontend: mamba
-{% if cookiecutter.path_to_conda_envs != "Snakemake-default" -%}
+{% if cookiecutter.path_to_conda_envs != "Snakemake-default" %}
 conda-prefix: {{cookiecutter.path_to_conda_envs}}
-{% endif -%}
-default-resources: [
-    "runtime=10",
-    "memory=16000"
-]
+{% endif %}
+default-resources:
+    - runtime=10
+    - mem_mb_per_cpu=16000
+    - disk_mb=1000
+    - slurm_account={{cookiecutter.slurm_account}}

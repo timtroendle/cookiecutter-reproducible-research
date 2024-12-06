@@ -2,16 +2,25 @@ from snakemake.utils import min_version
 PANDOC = "pandoc --filter pantable --filter pandoc-crossref --citeproc -f markdown+mark"
 
 configfile: "config/default.yaml"
-{% if cookiecutter._add_cluster_infrastructure == True -%}
+{% if cookiecutter._add_cluster_infrastructure == True %}
 include: "./rules/sync.smk"
-localrules: all, report, clean
-{%- endif %}
-min_version("8.10")
+{% endif %}
+min_version("8.20")
 
-{% if cookiecutter._add_cluster_infrastructure == True -%}
+{% if cookiecutter._add_cluster_infrastructure == True %}
 onstart:
     shell("mkdir -p build/logs")
-{%- endif %}
+    shell("""
+    if [ ! -d build/logs/slurm ] && [ -d .snakemake/slurm_logs ]; then
+        ln -s $PWD/.snakemake/slurm_logs build/logs/slurm
+    fi
+    """)
+    shell("""
+    if [ ! -d build/logs/snakemake ]; then
+        ln -s $PWD/.snakemake/log build/logs/snakemake
+    fi
+    """)
+{% endif %}
 onsuccess:
     if "email" in config.keys():
         shell("echo "" | mail -s '{{cookiecutter.project_short_name}} succeeded' {config[email]}")
@@ -21,6 +30,9 @@ onerror:
 
 rule all:
     message: "Run entire analysis and compile report."
+    {% if cookiecutter._add_cluster_infrastructure == True %}
+    localrule: True
+    {% endif %}
     input:
         "build/report.html",
         "build/report.pdf",
@@ -84,6 +96,9 @@ rule report:
 
 
 rule dag_dot:
+    {% if cookiecutter._add_cluster_infrastructure == True %}
+    localrule: True
+    {% endif %}
     output: temp("build/dag.dot")
     shell:
         "snakemake --rulegraph > {output}"
@@ -91,8 +106,11 @@ rule dag_dot:
 
 rule dag:
     message: "Plot dependency graph of the workflow."
+    {% if cookiecutter._add_cluster_infrastructure == True %}
+    localrule: True
+    {% endif %}
     input: rules.dag_dot.output[0]
-    # Output is deliberatly omitted so rule is executed each time.
+    # Output is deliberately omitted so rule is executed each time.
     conda: "envs/dag.yaml"
     shell:
         "dot -Tpdf {input} -o build/dag.pdf"
@@ -100,6 +118,9 @@ rule dag:
 
 rule clean: # removes all generated results
     message: "Remove all build results but keep downloaded data."
+    {% if cookiecutter._add_cluster_infrastructure == True %}
+    localrule: True
+    {% endif %}
     run:
          import shutil
 
