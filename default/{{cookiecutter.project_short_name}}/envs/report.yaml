@@ -9,6 +9,8 @@ dependencies:
     - weasyprint=62.3
     - pandoc=3.1.12.2
     - pandoc-crossref=0.3.17.0
+    - katex=0.16.9
+    - brotlipy=0.7.0
     - pip=23.1.2
     - pip:
         - pantable==0.14.2

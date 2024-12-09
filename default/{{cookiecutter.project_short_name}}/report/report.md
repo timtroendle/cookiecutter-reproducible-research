@@ -2,6 +2,14 @@
 
 ...
 
+# Methods
+
+@eq:demo is a math equation.
+
+$$
+x = y
+$$ {{ '{#eq:demo}' }}
+
 # Results
 
 @fig:linear-model shows the results we found:

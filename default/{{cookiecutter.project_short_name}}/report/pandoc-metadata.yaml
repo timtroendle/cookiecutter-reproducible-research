@@ -12,6 +12,7 @@ csl: apa.csl
 link-citations: True
 css:
     - reset.css
+    - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
     - report.css
 lang: en-GB
 figureTemplate: <span>$$figureTitle$$ $$i$$$$titleDelim$$</span> $$t$$
