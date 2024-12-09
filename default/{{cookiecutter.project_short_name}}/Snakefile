@@ -52,9 +52,9 @@ rule plot:
 def pandoc_options(wildcards):
     suffix = wildcards["suffix"]
     if suffix == "html":
-        return "--embed-resources --standalone --to html5"
+        return "--embed-resources --standalone --to html5 --mathml"
     elif suffix == "pdf":
-        return "--pdf-engine weasyprint"
+        return "--pdf-engine weasyprint --lua-filter='../scripts/math/math-katex.lua'"
     elif suffix == "docx":
         return []
     else:
@@ -70,6 +70,7 @@ rule report:
         "report/apa.csl",
         "report/reset.css",
         "report/report.css",
+        "scripts/math/math-katex.lua",
         rules.plot.output
     params: options = pandoc_options
     output: "build/report.{suffix}"
