@@ -44,9 +44,11 @@ To remove cluster results on your local machine, run `snakemake clean_cluster_re
 
 ## Be notified of build successes or fails
 
-As the execution of this workflow may take a while, you can be notified whenever the execution terminates either successfully or unsuccessfully. Notifications are sent by email. To activate notifications, add the email address of the recipient to the configuration key `email`. You can add the key to your configuration file, or you can run the workflow the following way to receive notifications:
+As the execution of this workflow may take a while, you can be notified whenever the execution terminates either successfully or unsuccessfully. Notifications are sent by the webservice [Pushcut](https://pushcut.io/) for which you need a free account. To activate notifications, add your Pushcut secret to the configuration using the configuration key `pushcut_secret`. You can add the key to your configuration file, or you can run the workflow the following way to receive notifications:
 
-    snakemake --config email=<your-email>
+    snakemake --config pushcut_secret=<your-secret>
+
+This workflow will then trigger the Pushcut notifications `snakemake_succeeded` and `snakemake_failed`.
 
 ## Run the tests
 

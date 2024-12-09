@@ -1,4 +1,5 @@
 from snakemake.utils import min_version
+import requests
 PANDOC = "pandoc --filter pantable --filter pandoc-crossref --citeproc -f markdown+mark"
 
 configfile: "config/default.yaml"
@@ -9,24 +10,14 @@ min_version("8.20")
 
 {% if cookiecutter._add_cluster_infrastructure == True %}
 onstart:
-    shell("mkdir -p build/logs")
-    shell("""
-    if [ ! -d build/logs/slurm ] && [ -d .snakemake/slurm_logs ]; then
-        ln -s $PWD/.snakemake/slurm_logs build/logs/slurm
-    fi
-    """)
-    shell("""
-    if [ ! -d build/logs/snakemake ]; then
-        ln -s $PWD/.snakemake/log build/logs/snakemake
-    fi
-    """)
+    prepare_log_directories()
 {% endif %}
 onsuccess:
-    if "email" in config.keys():
-        shell("echo "" | mail -s '{{cookiecutter.project_short_name}} succeeded' {config[email]}")
+    if "pushcut_secret" in config.keys():
+        trigger_pushcut(event_name="snakemake_succeeded", secret=config["pushcut_secret"])
 onerror:
-    if "email" in config.keys():
-        shell("echo "" | mail -s '{{cookiecutter.project_short_name}} failed' {config[email]}")
+    if "pushcut_secret" in config.keys():
+        trigger_pushcut(event_name="snakemake_failed", secret=config["pushcut_secret"])
 
 rule all:
     message: "Run entire analysis and compile report."
@@ -142,3 +133,28 @@ rule test:
     output: "build/test.success"
     conda: "./envs/test.yaml"
     script: "./tests/test_runner.py"
+
+
+def trigger_pushcut(event_name: str, secret: str) -> None:
+    """Trigger a Pushcut notification."""
+    response = requests.post(
+            f'https://api.pushcut.io/{secret}/notifications/{event_name}'
+    )
+    response.raise_for_status()
+
+
+{% if cookiecutter._add_cluster_infrastructure == True %}
+def prepare_log_directories() -> None:
+    """Create symlinks to Snakemake log directories."""
+    shell("mkdir -p build/logs")
+    shell("""
+    if [ ! -d build/logs/slurm ] && [ -d .snakemake/slurm_logs ]; then
+        ln -s $PWD/.snakemake/slurm_logs build/logs/slurm
+    fi
+    """)
+    shell("""
+    if [ ! -d build/logs/snakemake ]; then
+        ln -s $PWD/.snakemake/log build/logs/snakemake
+    fi
+    """)
+{% endif %}
