@@ -14,23 +14,23 @@ jobs:
         name: Reproduce the default demo analysis
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - name: Setup cookiecutter environment
-              uses: conda-incubator/setup-miniconda@v2
+              uses: conda-incubator/setup-miniconda@v3
               with:
                 auto-update-conda: true
-                python-version: "3.11"
+                python-version: 3.11
                 add-pip-as-python-dependency: true
             - name: Install cookiecutter
               run: pip install cookiecutter
             - name: Apply cookiecutter
               run: cookiecutter . --no-input --directory default
             - name: Setup Snakemake environment
-              uses: conda-incubator/setup-miniconda@v2
+              uses: conda-incubator/setup-miniconda@v3
               with:
                 auto-update-conda: true
-                python-version: "3.11"
-                mamba-version: "*"
+                python-version: 3.11
+                mamba-version: 1.5.11
                 activate-environment: reproducible-research-project
                 environment-file: reproducible-research-project/environment.yaml
             - name: Reproduce results
@@ -45,23 +45,23 @@ jobs:
         name: Reproduce the cluster demo analysis (run locally only)
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - name: Setup cookiecutter environment
-              uses: conda-incubator/setup-miniconda@v2
+              uses: conda-incubator/setup-miniconda@v3
               with:
                 auto-update-conda: true
-                python-version: "3.11"
+                python-version: 3.11
                 add-pip-as-python-dependency: true
             - name: Install cookiecutter
               run: pip install cookiecutter
             - name: Apply cookiecutter
               run: cookiecutter . --no-input --directory cluster
             - name: Setup Snakemake environment
-              uses: conda-incubator/setup-miniconda@v2
+              uses: conda-incubator/setup-miniconda@v3
               with:
                 auto-update-conda: true
-                python-version: "3.11"
-                mamba-version: "*"
+                python-version: 3.11
+                mamba-version: 1.5.11
                 activate-environment: reproducible-research-project
                 environment-file: reproducible-research-project/environment.yaml
             - name: Reproduce results

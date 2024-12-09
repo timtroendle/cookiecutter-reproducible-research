@@ -22,10 +22,10 @@ To generate a PDF of the dependency graph of all steps `build/dag.pdf` run:
 
     snakemake dag
 
-{% if cookiecutter._add_cluster_infrastructure == True -%}
+{% if cookiecutter._add_cluster_infrastructure == True %}
 ## Run on a cluster
 
-You may want to run the workflow on a cluster. While you can run on [any cluster that is supported by Snakemake](https://snakemake.readthedocs.io/en/stable/executing/cluster.html), the workflow currently supports [LSF](https://en.wikipedia.org/wiki/Platform_LSF) clusters only. To run the workflow on a LSF cluster, use the following command:
+You may want to run the workflow on a cluster. While you can run on [any cluster that is supported by Snakemake](https://snakemake.readthedocs.io/en/stable/executing/cluster.html), the workflow currently supports [Slurm](https://en.wikipedia.org/wiki/Slurm_Workload_Manager) clusters only. To run the workflow on a Slurm cluster, use the following command:
 
     snakemake --profile profiles/cluster
 
@@ -40,13 +40,13 @@ First, start local and make sure the `cluster-sync` configuration parameters fit
 This workflow works iteratively too. After analysing your cluster results locally, you may want to make changes locally, send these changes to the cluster (`snakemake send`), rerun on the cluster, and download updated results (`snakemake receive`).
 
 To remove cluster results on your local machine, run `snakemake clean_cluster_results`.
-{%- endif %}
+{% endif %}
 
 ## Be notified of build successes or fails
 
-  As the execution of this workflow may take a while, you can be notified whenever the execution terminates either successfully or unsuccessfully. Notifications are sent by email. To activate notifications, add the email address of the recipient to the configuration key `email`. You can add the key to your configuration file, or you can run the workflow the following way to receive notifications:
+As the execution of this workflow may take a while, you can be notified whenever the execution terminates either successfully or unsuccessfully. Notifications are sent by email. To activate notifications, add the email address of the recipient to the configuration key `email`. You can add the key to your configuration file, or you can run the workflow the following way to receive notifications:
 
-      snakemake --config email=<your-email>
+    snakemake --config email=<your-email>
 
 ## Run the tests
 
