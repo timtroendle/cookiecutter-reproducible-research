@@ -1,5 +1,6 @@
 # generated files
 build/
+archive/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
