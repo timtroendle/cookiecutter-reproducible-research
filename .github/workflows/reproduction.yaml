@@ -41,6 +41,10 @@ jobs:
               run: |
                 cd reproducible-research-project
                 snakemake dag
+            - name: Archive results
+              run: |
+                cd reproducible-research-project
+                snakemake archive
     run_cluster_workflow:
         name: Reproduce the cluster demo analysis (run locally only)
         runs-on: ubuntu-latest
@@ -72,3 +76,7 @@ jobs:
               run: |
                 cd reproducible-research-project
                 snakemake dag
+            - name: Archive results
+              run: |
+                cd reproducible-research-project
+                snakemake archive

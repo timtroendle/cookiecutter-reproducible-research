@@ -120,6 +120,31 @@ rule clean: # removes all generated results
          print("Data downloaded to data/ has not been cleaned.")
 
 
+rule archive:
+    message: "Package, zip, and move entire build."
+    params:
+        push_from_directory = config["push"]["from"],
+        push_to_directory = config["push"]["to"],
+        exclude_dirs = config["push"]["exclude-dirs"]
+    run:
+        from datetime import datetime
+        from pathlib import Path
+        import tarfile
+
+        today = datetime.today().strftime('%Y-%m-%d')
+        from_folder = Path(params.push_from_directory)
+        to_folder = Path(params.push_to_directory).expanduser()
+        build_archive_filename = to_folder / f"{{ cookiecutter.project_short_name }}-{today}.gz"
+
+        to_folder.mkdir(parents=True, exist_ok=True)
+        assert to_folder.is_dir(), f"Archive folder {to_folder} does not exist."
+
+        exclude_dirs = params.exclude_dirs if params.exclude_dirs else []
+
+        with tarfile.open(build_archive_filename, "w:gz") as tar:
+            tar.add(from_folder, filter=lambda x: None if x.name in exclude_dirs else x)
+
+
 rule test:
     # To add more tests, do
     # (1) Add to-be-tested workflow outputs as inputs to this rule.
