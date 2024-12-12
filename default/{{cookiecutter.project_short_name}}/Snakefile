@@ -1,10 +1,17 @@
 from snakemake.utils import min_version
+from pathlib import Path
 import requests
 PANDOC = "pandoc --filter pantable --filter pandoc-crossref --citeproc -f markdown+mark"
 
 configfile: "config/default.yaml"
 {% if cookiecutter._add_cluster_infrastructure == True %}
 include: "./rules/sync.smk"
+
+SNAKEMAKE_LOG_DIR = Path(".snakemake/log")
+SLURM_LOG_DIR = Path(".snakemake/slurm_logs")
+SNAKEMAKE_LOG_PUBLISH_DIR = Path("build/logs/snakemake")
+SLURM_LOG_PUBLISH_DIR = Path("build/logs/slurm")
+
 {% endif %}
 min_version("8.20")
 
@@ -18,6 +25,7 @@ onsuccess:
 onerror:
     if "pushcut_secret" in config.keys():
         trigger_pushcut(event_name="snakemake_failed", secret=config["pushcut_secret"])
+
 
 rule all:
     message: "Run entire analysis and compile report."
@@ -172,15 +180,10 @@ def trigger_pushcut(event_name: str, secret: str) -> None:
 {% if cookiecutter._add_cluster_infrastructure == True %}
 def prepare_log_directories() -> None:
     """Create symlinks to Snakemake log directories."""
-    shell("mkdir -p build/logs")
-    shell("""
-    if [ ! -d build/logs/slurm ] && [ -d .snakemake/slurm_logs ]; then
-        ln -s $PWD/.snakemake/slurm_logs build/logs/slurm
-    fi
-    """)
-    shell("""
-    if [ ! -d build/logs/snakemake ]; then
-        ln -s $PWD/.snakemake/log build/logs/snakemake
-    fi
-    """)
+    if SLURM_LOG_DIR.exists() and not SLURM_LOG_PUBLISH_DIR.exists():
+        SLURM_LOG_PUBLISH_DIR.parent.mkdir(parents=True, exist_ok=True)
+        SLURM_LOG_PUBLISH_DIR.symlink_to(SLURM_LOG_DIR.resolve())
+    if SNAKEMAKE_LOG_DIR.exists() and not SNAKEMAKE_LOG_PUBLISH_DIR.exists():
+        SNAKEMAKE_LOG_PUBLISH_DIR.parent.mkdir(parents=True, exist_ok=True)
+        SNAKEMAKE_LOG_PUBLISH_DIR.symlink_to(SNAKEMAKE_LOG_DIR.resolve())
 {% endif %}
