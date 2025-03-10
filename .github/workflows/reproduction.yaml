@@ -28,8 +28,8 @@ jobs:
             - name: Setup Snakemake environment
               uses: conda-incubator/setup-miniconda@v3
               with:
-                auto-update-conda: true
                 python-version: 3.11
+                miniconda-version: py311_24.7.1-0
                 mamba-version: 1.5.11
                 activate-environment: reproducible-research-project
                 environment-file: reproducible-research-project/environment.yaml
@@ -63,8 +63,8 @@ jobs:
             - name: Setup Snakemake environment
               uses: conda-incubator/setup-miniconda@v3
               with:
-                auto-update-conda: true
                 python-version: 3.11
+                miniconda-version: py311_24.7.1-0
                 mamba-version: 1.5.11
                 activate-environment: reproducible-research-project
                 environment-file: reproducible-research-project/environment.yaml
