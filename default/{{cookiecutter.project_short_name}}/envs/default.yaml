@@ -2,9 +2,9 @@ name: default
 channels:
     - conda-forge
 dependencies:
-    - python=3.11
+    - python=3.12
     - ipdb=0.13.13 # replaces default debugger with IPython debugger
-    - numpy=1.24.3
-    - pandas=2.0.1
-    - matplotlib=3.7.1
-    - seaborn=0.12.2
+    - numpy=2.3.0
+    - pandas=2.3.0
+    - matplotlib=3.10.3
+    - seaborn=0.13.2
