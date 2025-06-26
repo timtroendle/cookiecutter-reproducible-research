@@ -1,5 +1,4 @@
-use-conda: True
-conda-frontend: mamba
+software-deployment-method: conda
 {% if cookiecutter.path_to_conda_envs != "Snakemake-default" %}
 conda-prefix: {{cookiecutter.path_to_conda_envs}}
 {% endif %}

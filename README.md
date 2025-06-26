@@ -4,7 +4,7 @@
 
 This repository provides [cookiecutter](http://cookiecutter.readthedocs.io) templates for reproducible research projects. The templates do not attempt to be generic, but have a clear and opinionated focus.
 
-Projects build with these templates aim at full automation, and use `Python 3.11`, `mamba/conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML and PDF report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
+Projects build with these templates aim at full automation, and use `Python 3.11`, `conda`, `Git`, `Snakemake`, and `pandoc` to create a HTML and PDF report out of raw data, code, and `Markdown` text. Fork, clone, or download this repository on GitHub if you want to change any of these.
 
 The template includes a few lines of code as a demo to allow you to create a report out of made-up simulation results right away. Read the `README.md` in the generated repository to see how.
 
