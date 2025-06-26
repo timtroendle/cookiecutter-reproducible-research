@@ -7,7 +7,7 @@ dependencies:
     - cairocffi=1.7.1
     - psutil=7.0.0
     - weasyprint=62.3
-    - pandoc=3.6.4
+    - pandoc=3.6.2
     - pandoc-crossref=0.3.18.1
     - katex=0.16.9
     - brotlipy=0.7.0
