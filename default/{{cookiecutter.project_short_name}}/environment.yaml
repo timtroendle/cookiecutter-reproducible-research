@@ -6,5 +6,5 @@ dependencies:
     - python=3.12
     - snakemake-minimal=9.6.2
     {% if cookiecutter._add_cluster_infrastructure == True %}
-    - snakemake-executor-plugin-slurm=0.11.2
+    - snakemake-executor-plugin-slurm=1.4.0
     {% endif %}

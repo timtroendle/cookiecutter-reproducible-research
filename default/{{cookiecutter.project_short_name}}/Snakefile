@@ -13,7 +13,7 @@ SNAKEMAKE_LOG_PUBLISH_DIR = Path("build/logs/snakemake")
 SLURM_LOG_PUBLISH_DIR = Path("build/logs/slurm")
 
 {% endif %}
-min_version("8.20")
+min_version("9.6")
 
 {% if cookiecutter._add_cluster_infrastructure == True %}
 onstart:
@@ -133,7 +133,7 @@ rule archive:
     params:
         push_from_directory = config["push"]["from"],
         push_to_directory = config["push"]["to"],
-        exclude_dirs = config["push"]["exclude-dirs"]
+        exclude_paths = config["push"]["exclude-paths"]
     run:
         from datetime import datetime
         from pathlib import Path
@@ -147,10 +147,10 @@ rule archive:
         to_folder.mkdir(parents=True, exist_ok=True)
         assert to_folder.is_dir(), f"Archive folder {to_folder} does not exist."
 
-        exclude_dirs = params.exclude_dirs if params.exclude_dirs else []
+        exclude_paths = params.exclude_paths if params.exclude_paths else []
 
         with tarfile.open(build_archive_filename, "w:gz") as tar:
-            tar.add(from_folder, filter=lambda x: None if x.name in exclude_dirs else x)
+            tar.add(from_folder, filter=lambda x: None if x.name in exclude_paths else x)
 
 
 rule test:
