@@ -30,7 +30,6 @@ jobs:
               with:
                 auto-update-conda: true
                 python-version: 3.11
-                mamba-version: 1.5.11
                 activate-environment: reproducible-research-project
                 environment-file: reproducible-research-project/environment.yaml
             - name: Reproduce results
@@ -65,7 +64,6 @@ jobs:
               with:
                 auto-update-conda: true
                 python-version: 3.11
-                mamba-version: 1.5.11
                 activate-environment: reproducible-research-project
                 environment-file: reproducible-research-project/environment.yaml
             - name: Reproduce results

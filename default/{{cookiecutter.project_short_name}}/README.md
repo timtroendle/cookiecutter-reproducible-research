@@ -6,9 +6,9 @@ This repository contains the entire scientific project, including code and repor
 
 ## Getting ready
 
-You need [mamba](https://mamba.readthedocs.io/en/latest/) to run the analysis. Using mamba, you can create an environment from within you can run it:
+You need [conda](https://conda.org) to run the analysis. Using conda, you can create an environment from within you can run it:
 
-    mamba env create -f environment.yaml --no-default-packages
+    conda env create -f environment.yaml --no-default-packages
 
 ## Run the analysis
 
