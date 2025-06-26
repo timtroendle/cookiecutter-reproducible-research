@@ -2,8 +2,8 @@ name: test
 channels:
     - conda-forge
 dependencies:
-    - python=3.11
-    - numpy=1.24.3
-    - pandas=2.0.1
-    - pytest=7.3.1
+    - python=3.12
+    - numpy=2.3.0
+    - pandas=2.3.0
+    - pytest=8.4.1
     - pytest-html=4.1.1

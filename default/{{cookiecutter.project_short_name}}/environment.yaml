@@ -3,7 +3,7 @@ channels:
     - conda-forge
     - bioconda
 dependencies:
-    - python=3.11
+    - python=3.12
     - snakemake-minimal=8.20.6
     {% if cookiecutter._add_cluster_infrastructure == True %}
     - snakemake-executor-plugin-slurm=0.11.2
