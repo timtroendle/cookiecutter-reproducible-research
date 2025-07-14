@@ -180,10 +180,10 @@ def trigger_pushcut(event_name: str, secret: str) -> None:
 {% if cookiecutter._add_cluster_infrastructure == True %}
 def prepare_log_directories() -> None:
     """Create symlinks to Snakemake log directories."""
-    if SLURM_LOG_DIR.exists() and not SLURM_LOG_PUBLISH_DIR.exists():
+    if SLURM_LOG_DIR.resolve().exists() and not SLURM_LOG_PUBLISH_DIR.resolve().exists():
         SLURM_LOG_PUBLISH_DIR.parent.mkdir(parents=True, exist_ok=True)
         SLURM_LOG_PUBLISH_DIR.symlink_to(SLURM_LOG_DIR.resolve())
-    if SNAKEMAKE_LOG_DIR.exists() and not SNAKEMAKE_LOG_PUBLISH_DIR.exists():
+    if SNAKEMAKE_LOG_DIR.resolve().exists() and not SNAKEMAKE_LOG_PUBLISH_DIR.resolve().exists():
         SNAKEMAKE_LOG_PUBLISH_DIR.parent.mkdir(parents=True, exist_ok=True)
         SNAKEMAKE_LOG_PUBLISH_DIR.symlink_to(SNAKEMAKE_LOG_DIR.resolve())
 {% endif %}
